@@ -15,15 +15,18 @@ npm install bootstrap@4.5.0
 ng g class class/comment
 ```
 
-## 
+## Userクラス
 ```shell
 ng g class class/user
 ```
 
 
-## 
+## DateFormat Pipe
 ```shell
+ng g pipe pipes/comment-date
 ```
+
+
 ## 
 ```shell
 ```
