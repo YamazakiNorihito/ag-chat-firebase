@@ -10,8 +10,49 @@ ng new ag-chat-firebase
 npm install bootstrap@4.5.0
 ```
 
-
+## モックデータクラス作成
 ```shell
-brabrabra...
+ng g class class/comment
 ```
+
+## 
+```shell
+ng g class class/user
+```
+
+
+## 
+```shell
+```
+## 
+```shell
+```
+## 
+```shell
+```
+## 
+```shell
+```
+## 
+```shell
+```
+## 
+```shell
+```
+## 
+```shell
+```
+## 
+```shell
+```
+## 
+```shell
+```
+## 
+```shell
+```
+## 
+```shell
+```
+
 
