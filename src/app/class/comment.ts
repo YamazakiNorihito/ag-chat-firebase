@@ -4,11 +4,16 @@ export class Comment {
   user : User;
   message : string;
   date:number;
+  key? : string;
+  isEdit : boolean;
 
-
-  constructor(user: User, message: string) {
-    this.user = user;
-    this.message = message;
-    this.date = Date.now();
+  constructor(value :any) {
+    this.user = value.user;
+    this.message = value.message;
+    this.date = value.date || Date.now();
+    this.isEdit = false;
+    if(value.key){
+      this.key = value.key;
+    }
   }
 }

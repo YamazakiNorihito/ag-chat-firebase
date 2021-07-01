@@ -3,17 +3,11 @@ import { Component } from '@angular/core';
 import {Comment} from './class/comment';
 import {User} from './class/user';
 import { Observable } from 'rxjs';
-import { AngularFireDatabase } from '@angular/fire/database';
+import { AngularFireDatabase, AngularFireList, SnapshotAction } from '@angular/fire/database';
+import { map } from 'rxjs/operators';
 
 const MY_USER: User = new User(1,'大谷翔平')
 const YOUR_USER: User = new User(2,'ゲレーロJr')
-
-
-const COMMENTS: Comment[] = [
-  new Comment(MY_USER, 'ホームラン打ちましたか？'),
-  new Comment(YOUR_USER, '今日は打ってないです'),
-  new Comment(MY_USER, '私、２本打ったので１位になりました')
-]
 
 @Component({
   selector: 'app-root',
@@ -23,7 +17,10 @@ const COMMENTS: Comment[] = [
 export class AppComponent {
   title = 'ag-chat-firebase';
 
-  comments = COMMENTS;
+
+  comments$:Observable<Comment[]>;
+  commentsRef:AngularFireList<Comment>;
+
   loginuser = MY_USER;
   comment ='';
 
@@ -31,6 +28,16 @@ export class AppComponent {
 
   constructor(private db:AngularFireDatabase){
     this.item$ = db.object('/item').valueChanges();
+    this.commentsRef = db.list('/comments');
+    this.comments$ = this.commentsRef.snapshotChanges()
+    .pipe(
+      map((snapshots:SnapshotAction<Comment>[])=>{
+        return snapshots.map(snapshot => {
+          let value = snapshot.payload.val();
+          return new Comment({key:snapshot.payload.key, ...value});
+        })
+      })
+    );
   }
 
 
@@ -39,7 +46,7 @@ export class AppComponent {
         return;
     }
 
-    this.comments.push(new Comment(this.loginuser,comment));
+    this.commentsRef.push(new Comment({user :this.loginuser, message:comment}))
   }
 
 }
