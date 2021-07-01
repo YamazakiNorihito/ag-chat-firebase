@@ -132,10 +132,13 @@ angular-chat-39a59-default-rtdb
 </pre>
 
 
+# STEP3
 
+## UI 削除・修正・キャンセル実装
 
+https://fontawesome.com/
 ```shell
-
+npm install @fortawesome/fontawesome-free@5.14.0 
 ```
 
 ##

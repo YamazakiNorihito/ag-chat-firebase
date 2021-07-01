@@ -7,7 +7,6 @@ import { AngularFireDatabase, AngularFireList, SnapshotAction } from '@angular/f
 import { map } from 'rxjs/operators';
 
 const MY_USER: User = new User(1,'大谷翔平')
-const YOUR_USER: User = new User(2,'ゲレーロJr')
 
 @Component({
   selector: 'app-root',
@@ -24,10 +23,7 @@ export class AppComponent {
   loginuser = MY_USER;
   comment ='';
 
-  item$ : Observable<any> | undefined;
-
   constructor(private db:AngularFireDatabase){
-    this.item$ = db.object('/item').valueChanges();
     this.commentsRef = db.list('/comments');
     this.comments$ = this.commentsRef.snapshotChanges()
     .pipe(
@@ -48,5 +44,16 @@ export class AppComponent {
 
     this.commentsRef.push(new Comment({user :this.loginuser, message:comment}))
   }
+
+  updateComment(comment:Comment):void{
+    let {key,message} = comment;
+
+    this.commentsRef.update( key! ,{message});
+  }
+
+  deleteComment(comment:Comment):void{
+    this.commentsRef.remove(comment.key);
+  }
+
 
 }
