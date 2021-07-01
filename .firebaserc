@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "angular-chat-39a59": {
+      "hosting": {
+        "ag-chat-firebase": [
+          "angular-chat-39a59"
+        ]
+      }
+    }
+  }
+}

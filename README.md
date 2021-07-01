@@ -78,11 +78,27 @@ firebase init
 firebase deploy
 ```
 
-##
+### FirebaseとAngular連携
+https://github.com/angular/angularfire
 
+AngularFireをInstallすることによって、連携Moduleを使えるようにする
 ```shell
-
+ng add @angular/fire 
 ```
+```shell
+npm install @types/angularfire --save-dev
+```
+*--save-dev* はローカルインストールするためのコマンド。
+    自動で package.jsonの devDependencies に追記されます。
+    dependencies には追記されません。
+*npm install -g*がグローバルインストールのコマンド
+
+### Firebase プロジェクト設定 Angular Project Add
+
+Firebase →プロジェクト(今回の場合angular-chat)→左ナビ歯車アイコン→
+プロジェクトの設定→マイアプリ→”SDK の設定と構成”の”構成”ラジオボタン押下→アプリのキーと ID が含まれている Firebase 構成オブジェクト: をコピー→/src/environments/environment.ts に設定。内容は実ファイルを見てね
+ 
+
 
 ##
 
