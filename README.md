@@ -100,7 +100,39 @@ Firebase →プロジェクト(今回の場合angular-chat)→左ナビ歯車ア
  
 
 
-##
+## FireRealtimeDatabase 連携
+
+### 環境構築
+
+FireBaseにアクセス→任意にプロジェクト→左メニューRealtimeDatabaseを選択→データベース作成
+
+| 設定| value |
+| ---- | ---- |
+|ロケーション |   米国|
+|セキュリティ |   ロックモード|
+
+ルールタブ（権限設定
+```json
+{
+  "rules": {
+    ".read": true,
+    ".write": true
+  }
+}
+```
+
+### データ作成
+<pre>
+angular-chat-39a59-default-rtdb
+    |
+    |--- item
+            |
+            |--- message:今日も打ったよ
+            |--- name:大谷翔平
+</pre>
+
+
+
 
 ```shell
 
