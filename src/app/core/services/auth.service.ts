@@ -7,9 +7,17 @@ import firebase from 'firebase/app';
 })
 export class AuthService {
 
-  constructor(private afAuth: AngularFireAuth) { }
+  constructor(private afAuth: AngularFireAuth) {
+  }
 
-  create(email: string, password: string): Promise<firebase.auth.UserCredential> {
-    return this.afAuth.createUserWithEmailAndPassword(email, password);
+  create(email: string, password: string): Promise<void> {
+    return this.afAuth.createUserWithEmailAndPassword(email, password)
+                      .then((credential) => {
+                        let {user} = credential;
+                        let actionCodeSetting = {
+                          url: 'http://localhost:4200/?newAccount=true&emial=' + email
+                        };
+                        credential.user!.sendEmailVerification(actionCodeSetting);
+                      });
   }
 }
