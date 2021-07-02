@@ -141,16 +141,29 @@ https://fontawesome.com/
 npm install @fortawesome/fontawesome-free@5.14.0 
 ```
 
-##
+## コンポーネント分割
 
 ```shell
-
+ng g component caht
 ```
 
-##
+## Module分割
+
+
+(Angularコーディングスタイルガイド)[https://angular.jp/guide/styleguide#%E3%82%A2%E3%83%97%E3%83%AA%E3%81%AE-%E3%83%AB%E3%83%BC%E3%83%88%E3%83%A2%E3%82%B8%E3%83%A5%E3%83%BC%E3%83%AB]
+
+(angular機能別フォルダー 構造ベストプラクティス)[https://angular.jp/guide/styleguide#%E6%A9%9F%E8%83%BD%E5%88%A5%E3%83%95%E3%82%A9%E3%83%AB%E3%83%80%E3%83%BC-%E6%A7%8B%E9%80%A0]
+
+|   ModuleType | 意味|
+| --- | --- |
+|RootModule|アプリケーション全体のモジュール|
+|SharedModule|共通モジュール|
+|FeatureModule|機能モジュール（画面単位）|
+|CoreModule|一度だけ読み込む（angular 7以降では削除された考え|
 
 ```shell
-
+ng g module shared
+ng g module core
 ```
 
 ##
