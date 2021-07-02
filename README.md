@@ -78,40 +78,43 @@ firebase init
 firebase deploy
 ```
 
-### FirebaseとAngular連携
+### Firebase と Angular 連携
+
 https://github.com/angular/angularfire
 
-AngularFireをInstallすることによって、連携Moduleを使えるようにする
+AngularFire を Install することによって、連携 Module を使えるようにする
+
 ```shell
-ng add @angular/fire 
+ng add @angular/fire
 ```
+
 ```shell
 npm install @types/angularfire --save-dev
 ```
-*--save-dev* はローカルインストールするためのコマンド。
-    自動で package.jsonの devDependencies に追記されます。
-    dependencies には追記されません。
+
+_--save-dev_ はローカルインストールするためのコマンド。
+自動で package.json の devDependencies に追記されます。
+dependencies には追記されません。
 *npm install -g*がグローバルインストールのコマンド
 
 ### Firebase プロジェクト設定 Angular Project Add
 
-Firebase →プロジェクト(今回の場合angular-chat)→左ナビ歯車アイコン→
-プロジェクトの設定→マイアプリ→”SDK の設定と構成”の”構成”ラジオボタン押下→アプリのキーと ID が含まれている Firebase 構成オブジェクト: をコピー→/src/environments/environment.ts に設定。内容は実ファイルを見てね
- 
-
+Firebase → プロジェクト(今回の場合 angular-chat)→ 左ナビ歯車アイコン →
+プロジェクトの設定 → マイアプリ →”SDK の設定と構成”の”構成”ラジオボタン押下 → アプリのキーと ID が含まれている Firebase 構成オブジェクト: をコピー →/src/environments/environment.ts に設定。内容は実ファイルを見てね
 
 ## FireRealtimeDatabase 連携
 
 ### 環境構築
 
-FireBaseにアクセス→任意にプロジェクト→左メニューRealtimeDatabaseを選択→データベース作成
+FireBase にアクセス → 任意にプロジェクト → 左メニュー RealtimeDatabase を選択 → データベース作成
 
-| 設定| value |
-| ---- | ---- |
-|ロケーション |   米国|
-|セキュリティ |   ロックモード|
+| 設定         | value        |
+| ------------ | ------------ |
+| ロケーション | 米国         |
+| セキュリティ | ロックモード |
 
 ルールタブ（権限設定
+
 ```json
 {
   "rules": {
@@ -122,6 +125,7 @@ FireBaseにアクセス→任意にプロジェクト→左メニューRealtimeD
 ```
 
 ### データ作成
+
 <pre>
 angular-chat-39a59-default-rtdb
     |
@@ -131,44 +135,51 @@ angular-chat-39a59-default-rtdb
             |--- name:大谷翔平
 </pre>
 
-
 # STEP3
 
 ## UI 削除・修正・キャンセル実装
 
 https://fontawesome.com/
+
 ```shell
-npm install @fortawesome/fontawesome-free@5.14.0 
+npm install @fortawesome/fontawesome-free@5.14.0
 ```
 
-## コンポーネント分割
+## プロジェクト構成
+
+### コンポーネント
 
 ```shell
 ng g component caht
 ```
 
-## Module分割
+### Module 分割
 
+(Angular コーディングスタイルガイド)[https://angular.jp/guide/styleguide#%E3%82%A2%E3%83%97%E3%83%AA%E3%81%AE-%E3%83%AB%E3%83%BC%E3%83%88%E3%83%A2%E3%82%B8%E3%83%A5%E3%83%BC%E3%83%AB]
 
-(Angularコーディングスタイルガイド)[https://angular.jp/guide/styleguide#%E3%82%A2%E3%83%97%E3%83%AA%E3%81%AE-%E3%83%AB%E3%83%BC%E3%83%88%E3%83%A2%E3%82%B8%E3%83%A5%E3%83%BC%E3%83%AB]
+(angular 機能別フォルダー 構造ベストプラクティス)[https://angular.jp/guide/styleguide#%E6%A9%9F%E8%83%BD%E5%88%A5%E3%83%95%E3%82%A9%E3%83%AB%E3%83%80%E3%83%BC-%E6%A7%8B%E9%80%A0]
 
-(angular機能別フォルダー 構造ベストプラクティス)[https://angular.jp/guide/styleguide#%E6%A9%9F%E8%83%BD%E5%88%A5%E3%83%95%E3%82%A9%E3%83%AB%E3%83%80%E3%83%BC-%E6%A7%8B%E9%80%A0]
-
-|   ModuleType | 意味|
-| --- | --- |
-|RootModule|アプリケーション全体のモジュール|
-|SharedModule|共通モジュール|
-|FeatureModule|機能モジュール（画面単位）|
-|CoreModule|一度だけ読み込む（angular 7以降では削除された考え|
+| ModuleType    | 意味                                               |
+| ------------- | -------------------------------------------------- |
+| RootModule    | アプリケーション全体のモジュール                   |
+| SharedModule  | 共通モジュール                                     |
+| FeatureModule | 機能モジュール（画面単位）                         |
+| CoreModule    | 一度だけ読み込む（angular 7 以降では削除された考え |
 
 ```shell
 ng g module shared
 ng g module core
 ```
 
-##
+## ヘッダー作成
 
 ```shell
+ng g component core/components/header
+
+# 余談 module.ts の指定の仕方
+## デフォルトは作成ファイルを起点に一番近いModuleファイルに記載される
+ng g component core/components/header --module=core
+
 
 ```
 
