@@ -6,15 +6,15 @@
     >
       <div class="media">
         <div
-            *ngIf="comment.user.uid !== loginuser.uid"
+            *ngIf="comment.user.uid !== loginuser?.uid"
             class="media-left"
         >
           <a href="#" class="icon">{{comment.user.inital}}</a>
         </div>
         <div class="media-body">
           <div class="d-flex w-100 justify-content-between">
-            <h4 class="media-heading">{{comment.user.name}}
-              <ng-container *ngIf="comment.user.uid === loginuser.uid">
+            <h4 class="media-heading">{{comment.user.displayName}}
+              <ng-container *ngIf="comment.user.uid === loginuser?.uid">
                 <i class="fa fa-edit ml-Z" title="編集" (click)="comment.isEdit = !comment.isEdit"></i>
                 <i class="fa fa-trash ml-Z" title="削除"(click)="deleteComment(comment);" ></i>
               </ng-container>
@@ -35,7 +35,7 @@
           </ng-container>
         </div>
         <div
-            *ngIf="comment.user.uid === loginuser.uid"
+            *ngIf="comment.user.uid === loginuser?.uid"
             class="media-right"
         >
           <a href="#" class="icon">{{comment.user.inital}}</a>

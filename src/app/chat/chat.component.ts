@@ -1,13 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 
 import {Comment} from '../class/comment';
-import {User} from '../class/user';
+import { User } from '../class/user';
 import { Observable } from 'rxjs';
 import { AngularFireDatabase, AngularFireList, SnapshotAction } from '@angular/fire/database';
 import { map } from 'rxjs/operators';
-
-const MY_USER: User = new User(1,'大谷翔平')
-
+import { AngularFireAuth } from '@angular/fire/auth';
+import firebase from 'firebase/app';
 
 @Component({
   selector: 'app-chat',
@@ -16,14 +15,26 @@ const MY_USER: User = new User(1,'大谷翔平')
 })
 export class ChatComponent implements OnInit {
 
-  comments$:Observable<Comment[]>;
+  comments$:Observable<Comment[]>|undefined;
   commentsRef:AngularFireList<Comment>;
 
-  loginuser = MY_USER;
+  loginuser?:User;
   comment ='';
 
-  constructor(private db:AngularFireDatabase){
+  constructor(private afAuth:AngularFireAuth,
+              private db:AngularFireDatabase
+              ){
     this.commentsRef = db.list('/comments');
+  }
+
+  ngOnInit(): void {
+
+    this.afAuth.authState.subscribe((user:firebase.User| null)=> {
+      if(user){
+        this.loginuser = new User(user);
+      }
+    })
+
     this.comments$ = this.commentsRef.snapshotChanges()
     .pipe(
       map((snapshots:SnapshotAction<Comment>[])=>{
@@ -33,9 +44,6 @@ export class ChatComponent implements OnInit {
         })
       })
     );
-  }
-
-  ngOnInit(): void {
   }
 
 

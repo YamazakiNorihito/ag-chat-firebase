@@ -1,12 +1,18 @@
+import firebase from 'firebase/app';
+
 export class User {
 
-  inital : string;
-  uid:number;
-  name:string;
+  displayName:string|null;
+  email:string|null;
+  photoURL : string|null;
+  inital : string|undefined;
+  uid:string;
 
-  constructor(uid: number, name: string) {
-    this.inital = name.slice(0,1);
-    this.uid = uid;
-    this.name = name;
+  constructor(user:firebase.User) {
+      this.uid = user.uid;
+      this.displayName = user.displayName;
+      this.email = user.email;
+      this.photoURL = user.photoURL;
+      this.inital = user.displayName?.slice(0,1);
   }
 }
