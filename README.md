@@ -194,11 +194,16 @@ ng g module app-routing --flat --module=app
 ```shell
 ng g component core/components/not-found
 ```
+# STEP4
+## FireBase ユーザー認証
 
-##
+Fire→Authentication→Sign-in method →認証プロバイダ[メール / パスワード]
+
+## ユーザー登録画面
 
 ```shell
-
+ng g component sign-up
+ng g service core/services/auth
 ```
 
 ##
