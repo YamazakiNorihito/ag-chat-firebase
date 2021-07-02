@@ -189,10 +189,10 @@ ng g component core/components/header --module=core
 ng g module app-routing --flat --module=app
 ```
 
-##
+## 404ページ
 
 ```shell
-
+ng g component core/components/not-found
 ```
 
 ##
