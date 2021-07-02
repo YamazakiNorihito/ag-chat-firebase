@@ -212,8 +212,57 @@ ng g service core/services/auth
 ng g component login
 ```
 
-##
+## プロフィール
 
+### 登録画面
+```shell
+ng g module users --routing
+ng g component users/new-user
+```
+
+### APIRequestService
+```shell
+ng g service core/services/user
+```
+```shell
+
+```
+```shell
+
+```
+```shell
+
+```
+```shell
+
+```
+```shell
+
+```
+```shell
+
+```
+```shell
+
+```
+```shell
+
+```
+```shell
+
+```
+```shell
+
+```
+```shell
+
+```
+```shell
+
+```
+```shell
+
+```
 ```shell
 
 ```

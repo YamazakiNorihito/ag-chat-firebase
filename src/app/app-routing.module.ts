@@ -7,6 +7,7 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 
 const routes: Routes = [
   {path : '',component:ChatComponent},
+  {path:'users', loadChildren:()=> import('./users/users.module').then(m => m.UsersModule)}, // Dynamic import
   {path : 'signup',component:SignUpComponent},
   {path : 'login',component:LoginComponent},
   {path : '**',component:NotFoundComponent}
