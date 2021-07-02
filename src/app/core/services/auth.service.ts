@@ -20,4 +20,15 @@ export class AuthService {
                         credential.user!.sendEmailVerification(actionCodeSetting);
                       });
   }
+
+  login(email:string,password:string):Promise<firebase.auth.UserCredential | void>{
+    return this.afAuth.signInWithEmailAndPassword(email,password)
+    .catch(error => console.error(error));
+  }
+
+
+  logout():Promise<void>{
+    return this.afAuth.signOut();
+  }
+
 }

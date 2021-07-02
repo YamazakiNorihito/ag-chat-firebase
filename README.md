@@ -206,10 +206,10 @@ ng g component sign-up
 ng g service core/services/auth
 ```
 
-##
+## ログイン画面作成
 
 ```shell
-
+ng g component login
 ```
 
 ##

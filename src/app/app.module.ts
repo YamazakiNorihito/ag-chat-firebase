@@ -7,14 +7,16 @@ import { ChatComponent } from './chat/chat.component'
 
 import {SharedModule} from './shared/shared.module'
 import {CoreModule} from './core/core.module';
-import { SignUpComponent } from './sign-up/sign-up.component'
+import { SignUpComponent } from './sign-up/sign-up.component';
+import { LoginComponent } from './login/login.component'
 
 
 @NgModule({
   declarations: [
     AppComponent,
     ChatComponent,
-    SignUpComponent
+    SignUpComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
