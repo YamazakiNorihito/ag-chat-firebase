@@ -183,10 +183,10 @@ ng g component core/components/header --module=core
 
 ```
 
-##
-
+## Routing
+すでに作成済みの場合は不要。プロジェクト作成時などで初期作成されている場合などなど
 ```shell
-
+ng g module app-routing --flat --module=app
 ```
 
 ##
