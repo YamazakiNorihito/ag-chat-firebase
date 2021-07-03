@@ -184,20 +184,24 @@ ng g component core/components/header --module=core
 ```
 
 ## Routing
+
 すでに作成済みの場合は不要。プロジェクト作成時などで初期作成されている場合などなど
+
 ```shell
 ng g module app-routing --flat --module=app
 ```
 
-## 404ページ
+## 404 ページ
 
 ```shell
 ng g component core/components/not-found
 ```
+
 # STEP4
+
 ## FireBase ユーザー認証
 
-Fire→Authentication→Sign-in method →認証プロバイダ[メール / パスワード]
+Fire→Authentication→Sign-in method → 認証プロバイダ[メール / パスワード]
 
 ## ユーザー登録画面
 
@@ -215,54 +219,86 @@ ng g component login
 ## プロフィール
 
 ### 登録画面
+
 ```shell
 ng g module users --routing
 ng g component users/new-user
 ```
 
 ### APIRequestService
+
 ```shell
 ng g service core/services/user
 ```
+
+# STEP5
+
+## アクセス制御
+
+[Guarde 公式ドキュメント](https://angular.jp/guide/router-tutorial-toh#objectives)
+
+| . GuardName      | . Desc                                               |
+| ---------------- | ---------------------------------------------------- |
+| CanActivate      | 対象パスへのページ遷移を許可するか(今回これ使います) |
+| CanActivateChild | 対象パスの個ルートへの遷移を許可するか               |
+| CanDeactivate    | 他のパスへの遷移を制限するか                         |
+| CanLoad          | loadChildren でモジュールを読み込めるか              |
+| Resolve          | 対象パスへの遷移中に実行する中間処理を指定           |
+
+## guard 作成
+
+```shell
+ng g guard core/guards/auth
+```
+
 ```shell
 
 ```
+
 ```shell
 
 ```
+
 ```shell
 
 ```
+
 ```shell
 
 ```
+
 ```shell
 
 ```
+
 ```shell
 
 ```
+
 ```shell
 
 ```
+
 ```shell
 
 ```
+
 ```shell
 
 ```
+
 ```shell
 
 ```
+
 ```shell
 
 ```
+
 ```shell
 
 ```
-```shell
 
-```
 ```shell
 
 ```
