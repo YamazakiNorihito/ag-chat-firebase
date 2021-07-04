@@ -263,6 +263,8 @@ ng g module timeline --routing
  ng g component timeline/user-list
 ```
 
+## user 詳細 作成
+
 ```shell
 ng g component users/user-detail
 ```
