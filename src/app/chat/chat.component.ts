@@ -59,7 +59,7 @@ export class ChatComponent implements OnInit {
         return;
     }
 
-    this.commentsRef.push(new Comment({user :this.loginuser, message:comment}))
+    this.commentsRef.push(new Comment({user :this.loginuser, message:comment}));
   }
 
   updateComment(comment:Comment):void{

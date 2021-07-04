@@ -15,7 +15,6 @@
   <app-user-list></app-user-list>
 
   <div class="content">
-
     <section class="chat">
       <div class="chat-timeline">
         <div
@@ -68,7 +67,7 @@
         <div class="form-header d-flex flex-row-reverse mb-2">
           <span class="input-group-btn">
             <button
-                (click)="addComment(comment);"
+                (click)="addComment(comment);comment='';"
                 class="btn btn-info btn-sm" type="submit" tabindex="2">送信</button>
           </span>
         </div>
