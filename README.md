@@ -269,42 +269,53 @@ ng g module timeline --routing
 ng g component users/user-detail
 ```
 
+# STEP6
+
+## firebase hostiong release(deploy)
+
+### firebase app myproject
+
 ```shell
+firebase use --add
+# プロジェクト選択（firebase のプロジェクト ID は、Firebase の管理画面 → 左メニュー歯車（設定）→ 全般 → プロジェクト ID一致）
+# プロジェクトのエイリアスを登録 →angular-chat 今回は
+
+# 登録確認
+firebase use
 
 ```
 
+### deploy files create
+
 ```shell
+ng build --prod
+# src/ag-chat-firebase/dist  ディレクトリが作成される
+# 汎用的に書くならば project root/dist
 
 ```
 
-```shell
-
-```
+### firebase deploy
 
 ```shell
-
+firebase deploy
 ```
+
+### firebase deploy site open
 
 ```shell
-
+firebase open hosting:site
 ```
+
+### build & firebase deploy 一括
 
 ```shell
-
+ng deploy
 ```
 
-```shell
+# 関連ライブラリ
 
-```
-
-```shell
-
-```
-
-```shell
-
-```
-
-```shell
-
-```
+- https://angular.jp/
+- https://ngrx.io/
+- https://github.com/zefoy/ngx-swiper-wrapper
+- https://material.angular.io/
+- https://ng-bootstrap.github.io/#/home
