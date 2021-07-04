@@ -19,21 +19,28 @@ export class ChatComponent implements OnInit {
   commentsRef:AngularFireList<Comment>;
 
   loginuser?:User;
+  loginuser$:Observable<User|null>;
+
   comment ='';
 
   constructor(private afAuth:AngularFireAuth,
               private db:AngularFireDatabase
               ){
     this.commentsRef = db.list('/comments');
+    this.loginuser$ = new Observable<null>();
   }
 
   ngOnInit(): void {
 
-    this.afAuth.authState.subscribe((user:firebase.User| null)=> {
-      if(user){
-        this.loginuser = new User(user);
-      }
-    })
+    this.loginuser$ = this.afAuth.authState.pipe(
+      map((user:firebase.User| null)=> {
+        if(user){
+          this.loginuser = new User(user);
+          return this.loginuser;
+        }
+        return null;
+      })
+    );
 
     this.comments$ = this.commentsRef.snapshotChanges()
     .pipe(

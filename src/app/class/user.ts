@@ -8,7 +8,7 @@ export class User {
   inital : string|undefined;
   uid:string;
 
-  constructor(user:firebase.User) {
+  constructor(user:User |firebase.User) {
       this.uid = user.uid;
       this.displayName = user.displayName;
       this.email = user.email;

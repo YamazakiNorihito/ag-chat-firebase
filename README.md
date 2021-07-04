@@ -251,16 +251,20 @@ ng g service core/services/user
 ng g guard core/guards/auth
 ```
 
-```shell
+## timeline 作成
 
+```shell
+ng g module timeline --routing
+```
+
+## timeline user list 作成
+
+```shell
+ ng g component timeline/user-list
 ```
 
 ```shell
-
-```
-
-```shell
-
+ng g component users/user-detail
 ```
 
 ```shell
